@@ -5,13 +5,13 @@ import { fetchContent } from "../../api/fetchData";
 import { Pagination } from "../../components/pagination/Pagination";
 import { MainList } from "../../components/mainList/MainList";
 
-const Movies = ({ setIsLoading, setContent, isLoading, content, currentPage, setCurrentPage }: IProps) => {
+const Movies = ({ setIsLoading, setContent, isLoading, content, currentPage, setCurrentPage, contentType }: IProps) => {
 
   useEffect(() => {
     const loadMovies = async () => {
       setIsLoading(true);
       try {
-        const res = await fetchContent<IMovie>(currentPage, 'movie');
+        const res = await fetchContent<IMovie>(currentPage, contentType);
         setContent(res);
       } catch (error) {
         console.error('Failed to fetch movies', error);
@@ -21,7 +21,7 @@ const Movies = ({ setIsLoading, setContent, isLoading, content, currentPage, set
     };
 
     loadMovies();
-  }, [currentPage]);
+  }, [currentPage, contentType, setIsLoading, setContent]);
 
   return (
     <div>

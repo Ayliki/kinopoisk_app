@@ -16,7 +16,7 @@ export async function fetchContent<T extends IMovie | ISeries>(
         const params = {
             page: page.toString(),
             limit: '12',
-            'rating.imdb': '7.2-10',
+            'rating.imdb': '5-10',
             ...(type === 'series'
                 ? { type: 'tv-series', 'budget.value': '10000000-1000000000' }
                 : { lists: 'top250' }),

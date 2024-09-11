@@ -12,7 +12,7 @@ interface IProps {
 export const MainList = ({ isLoading, content, title }: IProps) => {
     const {
         isPopupOpen,
-        selectedMovie,
+        selectedContent,
         popupRef,
         handleOpenPopup,
         handleClosePopup,
@@ -29,12 +29,12 @@ export const MainList = ({ isLoading, content, title }: IProps) => {
                 handleOpenPopup={handleOpenPopup}
             />)}
 
-            {isPopupOpen && selectedMovie &&
+            {isPopupOpen && selectedContent &&
                 <Popup
                     popupRef={popupRef}
                     handleClickOutside={handleClickOutside}
                     handleClosePopup={handleClosePopup}
-                    selectedMovie={selectedMovie}
+                    selectedContent={selectedContent}
                 />
             }
         </div>
