@@ -1,31 +1,31 @@
 import { useRef, useState } from "react";
-import { IMovie } from "../../interfaces/interface";
+import { IMovie, ISeries } from "../../interfaces/interface";
 
 export const usePopup = () => {
     const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-    const [selectedMovie, setSelectedMovie] = useState<IMovie | null>(null);
+    const [selectedContent, setSelectedContent] = useState<IMovie | ISeries | null>(null);
     const popupRef = useRef<HTMLDivElement | null>(null)
 
-    const handleOpenPopup = (movie: IMovie) => {
-        setSelectedMovie(movie);
+    const handleOpenPopup = (content: (IMovie | ISeries)) => {
+        setSelectedContent(content);
         setIsPopupOpen(true);
     };
 
     const handleClosePopup = () => {
-        setSelectedMovie(null);
+        setSelectedContent(null);
         setIsPopupOpen(false);
     };
 
     const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
         if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
-            setSelectedMovie(null);
+            setSelectedContent(null);
             setIsPopupOpen(false)
         }
     };
 
     return {
         isPopupOpen,
-        selectedMovie,
+        selectedContent,
         popupRef,
         handleOpenPopup,
         handleClosePopup,
