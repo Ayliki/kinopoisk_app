@@ -1,0 +1,49 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.popupContent {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1010;
+}
+
+.popupPoster {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.closeBtn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em; 
+    color: #000; 
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+    padding: 5px; 
+    border-radius: 50%; 
+    z-index: 1020; 
+}
+
+.closeBtn:focus,
+.closeBtn:hover {
+    background: #777; 
+    color: white;
+}
